@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">Cotizatia</string>
+    <string name="app_titlu_princ">Afisare situatii statistice</string>
+    <string name="anul">Introduceti anul</string>
+    <string name="racheta">Site-Racheta</string>
+    <string name="help">Help</string>
+    <string name="logout">Iesire</string>
+    <string name="iesire">Inchide</string>
+    <string name="afiseaza"><font fgcolor="#ffffff">Afiseaza</font></string>
+
+    <string name="lipsa_an"><font fgcolor="#ff9a1d1d"><big><b>Nu ati introdus anul cautarii !</b></big></font></string>
+    <string name="lipsa_optiune"><font fgcolor="#ff9a1d1d"><big><b>Nu ati ales optiunea cautarii !</b></big></font></string>
+    <string name="site_racheta">Site-Racheta</string>
+
+    <string name="Statistici">Statistici asociatie</string>
+    <string name="SitCotMem">Situatia cotizatiei pe membru</string>
+    <string name="CotAsAn">cotizatie asociatie pe an</string>
+    <string name="TotCheltAn">Total cheltuieli asociatie pe an</string>
+    <string name="SitFinGen">Situatia financiara generala</string>
+
+    <string name="TitluHelp">Cateva precizari pentru folosirea aplicatiei</string>
+
+    <string name="Continut1Help">Folosind aceasta aplicatie puteti sa consultati urmatoarele: \n\n
+    </string>
+
+    <string name="Continut2Help">
+    - situatia la zi a fiecarui membru cotizant\n
+    - situatia cheltuielilor asociatiei\n
+    - situatia cu total venituri si cheltuieli\n
+    - puteti accesa situl A.S."Racheta" pentru maimulte informatii\n\n</string>
+
+    <string name="Continut3Help">Pentru a vizualiza informatiile , introduceti anul pe care il doriti si apoi selectati optiunea de afisare dorita\n\n
+    Pe bara aplicatiei aveti optiunea de a parasi aplicatia si un meniu reprezentat prin trei puncte asezata vertical
+    in care gasiti doua optiuni :\n</string>
+
+    <string name="Continut4Help">
+     - prima va permite sa vizualizati situl A.S."Racheta"\n
+     - a doua afiseaza acest help\n\n</string>
+
+</resources>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textViewTitlu"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/caseta"
+        android:text="@string/app_titlu_princ"
+        android:textAlignment="center"
+        android:textColor="#3E2723"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/editTextAnul"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.060000002" />
+
+    <EditText
+        android:id="@+id/editTextAnul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="4dp"
+        android:ems="10"
+        android:hint="@string/anul"
+        android:importantForAutofill="no"
+        android:inputType="number"
+        android:minHeight="32dp"
+        android:textColor="#041B2E"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@id/radio_grup"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.46"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTitlu"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/mybutton"
+        android:text="@string/afiseaza"
+        android:textAllCaps="false"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radio_grup"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <RadioGroup
+        android:id="@+id/radio_grup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/caseta"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/btnSend"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAnul">
+
+        <RadioButton
+            android:id="@+id/radio_cot_persoana"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:layout_weight="1"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/SitCotMem"
+            android:textColor="#3E2723"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/radio_total_cot_pe_an"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:layout_weight="1"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/CotAsAn"
+            android:textColor="#3E2723"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/radio_chelt_asoc_an"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:layout_weight="1"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/TotCheltAn"
+            android:textColor="#3E2723"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/radio_sit_gen_asoc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:layout_weight="1"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/SitFinGen"
+            android:textColor="#3E2723"
+            android:textSize="16sp" />
+    </RadioGroup>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
