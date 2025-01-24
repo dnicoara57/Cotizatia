@@ -36,13 +36,15 @@ public class ConnectionTask {
         ExecutorService executor = Executors.newSingleThreadExecutor();
         executor.execute(() -> {
             String result = doInBackground();
-            ((AfisareActivity) context).runOnUiThread(() -> onPostExecute(result));
+            if (context instanceof AfisareActivity) {
+                ((AfisareActivity) context).runOnUiThread(() -> onPostExecute(result));
+            }
         });
     }
 
     private String doInBackground() {
-        String host = "https://racheta-hateg.000webhostapp.com/Cotizatia.php?anul=" + manul + "&optiunea=" + moptiuneaMea;
-
+        //String host = "https://racheta-hateg.000webhostapp.com/Cotizatia.php?anul=" + manul + "&optiunea=" + moptiuneaMea;
+        String host = "https://racheta-hateg.nicalemardan.ro/Cotizatia.php?anul=" + manul + "&optiunea=" + moptiuneaMea;
         try {
             URL url = new URL(host);
             HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
@@ -71,6 +73,11 @@ public class ConnectionTask {
     }
 
     private void onPostExecute(String result) {
+        if (result.startsWith("Excepție:")) {
+            Toast.makeText(context, result, Toast.LENGTH_LONG).show();
+            return;
+        }
+
         try {
             JSONObject jsonResult = new JSONObject(result);
             int success = jsonResult.optInt("success", 0);
@@ -81,11 +88,13 @@ public class ConnectionTask {
                     for (int i = 0; i < cotizatia.length(); i++) {
                         JSONObject cot = cotizatia.optJSONObject(i);
                         if (cot != null) {
-                            String numele = cot.optString("nume", "Necunoscut");
-                            String prenumele = cot.optString("prenume", "Necunoscut");
+                            String numele = cot.optString("Nume", "Necunoscut");
+                            String prenumele = cot.optString("Prenume", "Necunoscut");
                             int total = cot.optInt("total", 0);
 
-                            mActivity.nume_cotizanti.add(numele);
+                            synchronized (mActivity.nume_cotizanti) {
+                                mActivity.nume_cotizanti.add(numele);
+                            }
                             mActivity.prenume_cotizanti.add(prenumele);
                             mActivity.total_cotizatie.add(Double.toString(total));
                         }

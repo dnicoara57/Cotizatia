@@ -65,12 +65,12 @@ public class AfisareActivity extends AppCompatActivity implements View.OnClickLi
 
         });
 
-        ConnectionTask con = new ConnectionTask(getApplicationContext(), this, manulTrimis, moptiuneaTrimisa);
-        con.execute();
-
-
-        //Connection con= new Connection(getApplicationContext(), this,manulTrimis,moptiuneaTrimisa);
+        //ConnectionTask con = new ConnectionTask(getApplicationContext(), this, manulTrimis, moptiuneaTrimisa);
         //con.execute();
+
+
+        Connection con= new Connection(getApplicationContext(), this,manulTrimis,moptiuneaTrimisa);
+        con.execute();
     }
 
 

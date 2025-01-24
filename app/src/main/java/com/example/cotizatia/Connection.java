@@ -37,8 +37,8 @@ class Connection extends AsyncTask<String,Void,String>
 
         //String host="https://racheta-hateg.000webhostapp.com/cars.php?anul="+manul;
         //String host="http://10.0.2.2/store/cars.php?anul="+manul;
-        String host="https://racheta-hateg.000webhostapp.com/Cotizatia.php?anul="+manul+"&optiunea="+moptiuneaMea;
-
+        //String host="https://racheta-hateg.000webhostapp.com/Cotizatia.php?anul="+manul+"&optiunea="+moptiuneaMea;
+        String host = "https://racheta-hateg.nicalemardan.ro/Cotizatia.php?anul=" + manul + "&optiunea=" + moptiuneaMea;
         URL url = null;
         try {
             url = new URL(host);
@@ -114,8 +114,8 @@ class Connection extends AsyncTask<String,Void,String>
 //                    mActivity.pret.add(Double.toString(price));
 //                    mActivity.descriere.add(description);
 
-                    String numele=cot.getString("nume");
-                    String prenumele=cot.getString("prenume");
+                    String numele=cot.getString("Nume");
+                    String prenumele=cot.getString("Prenume");
                     int total=cot.getInt("total");
 
 
