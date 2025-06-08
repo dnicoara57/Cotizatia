@@ -1,8 +1,12 @@
 package com.example.cotizatia;
 
 import android.content.Context;
-import android.os.AsyncTask;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
 import android.widget.Toast;
+
+import com.example.cotizatia.AfisareActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,139 +20,105 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import android.util.Log;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
-
-class Connection extends AsyncTask<String,Void,String>
-{
+public class Connection {
     private Context context;
     private String manul;
-    AfisareActivity mActivity;
+    private AfisareActivity mActivity;
     private String moptiuneaMea;
 
     public Connection(Context ctx, AfisareActivity activity, String anTrimis, String Myop) {
-        context = ctx;
-        mActivity=activity;
-        manul=anTrimis;
-        moptiuneaMea=Myop;
+        this.context = ctx;
+        this.mActivity = activity;
+        this.manul = anTrimis;
+        this.moptiuneaMea = Myop;
     }
 
-
-    @Override
-    protected String doInBackground(String... params) {
-
-        //String host="http://10.0.2.2/store/cars.php?anul="+manul;
-        //String host="https://racheta-hateg.000webhostapp.com/Cotizatia.php?anul="+manul+"&optiunea="+moptiuneaMea;
+    // Metoda pentru apelul API
+    private String fetchDataFromServer() {
         String host = "https://racheta-hateg.nicalemardan.ro/api/CotizatieApi?anul=" + manul + "&optiunea=" + moptiuneaMea;
-        URL url = null;
+        StringBuilder stringBuffer = new StringBuilder();
+
         try {
-            url = new URL(host);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
-        HttpURLConnection urlConnection;
-        try {
-            urlConnection = (HttpURLConnection) url.openConnection();
+            URL url = new URL(host);
+            HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod("GET");
             urlConnection.setDoInput(true);
-            urlConnection.setDoOutput(true);
             urlConnection.setRequestProperty("Content-Type", "application/json");
             urlConnection.setRequestProperty("charset", "utf-8");
             urlConnection.connect();
 
-//            int responseCode=urlConnection.getResponseCode();
-//            if(responseCode>=400)
-//                    Toast.makeText(context, "Conexiunea a esuat !", Toast.LENGTH_SHORT).show();
-//            else
-//                Toast.makeText(context, "Conexiune reusita !", Toast.LENGTH_SHORT).show();
-
-            InputStream ips=urlConnection.getInputStream();
-            BufferedReader reader=new BufferedReader(new InputStreamReader(ips, StandardCharsets.ISO_8859_1));
+            InputStream ips = urlConnection.getInputStream();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(ips, StandardCharsets.UTF_8));
             String linie;
-            StringBuilder stringBuffer=new StringBuilder();
 
-            while ((linie= reader.readLine())!=null)
-            {
+            while ((linie = reader.readLine()) != null) {
                 stringBuffer.append(linie);
-                System.out.println(linie);
-
             }
-            String response = stringBuffer.toString();
-            Log.d("API_RESPONSE", "Răspuns primit: " + response);
-            System.out.println("Răspuns API: " + response);
 
-
-            mActivity.result=stringBuffer.toString();
             reader.close();
             ips.close();
             urlConnection.disconnect();
 
-        } catch (IOException e) {
-            Log.e("API_ERROR", "Exceptie: " + e.getMessage());
-            return "  Exceptie : " + e.getMessage();
-        }
+            Log.d("API_RESPONSE", "Răspuns primit: " + stringBuffer.toString());
+            return stringBuffer.toString();
 
-        return mActivity.result;
+        } catch (MalformedURLException e) {
+            Log.e("API_ERROR", "URL greșit: " + e.getMessage());
+        } catch (IOException e) {
+            Log.e("API_ERROR", "Exceptie conexiune: " + e.getMessage());
+        }
+        return null;
     }
 
+    // Metoda pentru inițierea request-ului în fundal
+    public void executeRequest() {
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        Handler handler = new Handler(Looper.getMainLooper());
 
-    protected void onPostExecute(String result)
-    {
-        //Parsing Json data here
+        executor.execute(() -> {
+            String result = fetchDataFromServer();
 
-        //Toast.makeText(context, "Exista masini in stoc", Toast.LENGTH_SHORT).show();
+            handler.post(() -> {
+                if (result != null) {
+                    processJsonResponse(result);
+                } else {
+                    Toast.makeText(context, "Eroare conexiune API!", Toast.LENGTH_SHORT).show();
+                }
+            });
+        });
+    }
 
+    // Metoda de procesare JSON (înlocuiește `onPostExecute`)
+    private void processJsonResponse(String result) {
         try {
-            JSONObject jsonResult=new JSONObject(result);
-            int success=jsonResult.getInt("success");
-            if(success==1)
-            {
-                //JSONArray cars=jsonResult.getJSONArray("cars");
-                JSONArray cotizatia=jsonResult.getJSONArray("cotizatie");
-                for(int i=0;i<cotizatia.length();i++)
-                {
-                    JSONObject cot=cotizatia.getJSONObject(i);
+            JSONObject jsonResult = new JSONObject(result);
+            int success = jsonResult.getInt("success");
 
-                   //int id=car.getInt("id");
-                    //String name=car.getString("name");
-                    //double price=car.getDouble("price");
-                    //String description=car.getString("description");
-                    //String line=id+"-"+name+"-"+price+"-"+ description;
+            if (success == 1) {
+                JSONArray cotizatia = jsonResult.getJSONArray("cotizatie");
+                for (int i = 0; i < cotizatia.length(); i++) {
+                    JSONObject cot = cotizatia.getJSONObject(i);
 
-                    //mAdapter.add(line);
-
-//                    mActivity.nume.add(name);
-//                    mActivity.pret.add(Double.toString(price));
-//                    mActivity.descriere.add(description);
-
-                    String numele=cot.getString("Nume");
-                    String prenumele=cot.getString("Prenume");
-                    int total=cot.getInt("total");
-
+                    String numele = cot.getString("Nume");
+                    String prenumele = cot.getString("Prenume");
+                    int total = cot.getInt("total");
 
                     mActivity.nume_cotizanti.add(numele);
                     mActivity.prenume_cotizanti.add(prenumele);
                     mActivity.total_cotizatie.add(Double.toString(total));
-
                 }
 
-                Toast.makeText(context, "Exista inregistrari in baza de date", Toast.LENGTH_SHORT).show();
-
+                Toast.makeText(context, "Exista înregistrări în baza de date", Toast.LENGTH_SHORT).show();
                 mActivity.addHeaders();
                 mActivity.addData();
+            } else {
+                Toast.makeText(context, "Nu există înregistrări în baza de date", Toast.LENGTH_SHORT).show();
             }
-            else
-            {
-                Toast.makeText(context, "Nu exista inregistrari in baza de date", Toast.LENGTH_SHORT).show();
-            }
-        } catch (JSONException e)
-        {
-            Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG).show();
+        } catch (JSONException e) {
+            Toast.makeText(context, "Eroare parsare JSON: " + e.getMessage(), Toast.LENGTH_LONG).show();
         }
-
     }
-
 }
-
-
-

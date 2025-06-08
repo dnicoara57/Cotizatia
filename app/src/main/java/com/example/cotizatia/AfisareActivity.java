@@ -29,9 +29,9 @@ public class AfisareActivity extends AppCompatActivity implements View.OnClickLi
     String result="";
     Button mbtnInapoi;
 
-    ArrayList<String> nume_cotizanti=new ArrayList<>();
-    ArrayList<String>prenume_cotizanti=new ArrayList<>();
-    ArrayList<String>total_cotizatie=new ArrayList<>();
+    public ArrayList<String> nume_cotizanti=new ArrayList<>();
+    public ArrayList<String>prenume_cotizanti=new ArrayList<>();
+    public ArrayList<String>total_cotizatie=new ArrayList<>();
 
     String manulTrimis;
     String moptiuneaTrimisa;
@@ -65,12 +65,9 @@ public class AfisareActivity extends AppCompatActivity implements View.OnClickLi
 
         });
 
-        //ConnectionTask con = new ConnectionTask(getApplicationContext(), this, manulTrimis, moptiuneaTrimisa);
-        //con.execute();
-
 
         Connection con= new Connection(getApplicationContext(), this,manulTrimis,moptiuneaTrimisa);
-        con.execute();
+        con.executeRequest();
     }
 
 
