@@ -44,29 +44,42 @@ public class MainActivity extends AppCompatActivity {
 
         mradioGroup.setOnCheckedChangeListener((group, checkedId) -> {
 
-             // Add logic here
+            // Add logic here
             // Check which radio button was clicked
-            switch(checkedId) {
-                case R.id.radio_cot_persoana:
-                        moptiuneaMea = "cotizatie_persoana";
-                    break;
-                case R.id.radio_total_cot_pe_an:
-                        moptiuneaMea = "total_cotizatie_anual";
-                    break;
-                case R.id.radio_chelt_asoc_an:
-                        moptiuneaMea = "total_cheltuieli_anual";
-                    break;
-                case R.id.radio_sit_gen_asoc:
-                        moptiuneaMea = "situatia_financiara_generala";
-                    break;
+            if (checkedId == R.id.radio_cot_persoana) {
+                moptiuneaMea = "cotizatie_persoana";
+            } else if (checkedId == R.id.radio_total_cot_pe_an) {
+                moptiuneaMea = "total_cotizatie_anual";
+            } else if (checkedId == R.id.radio_chelt_asoc_an) {
+                moptiuneaMea = "total_cheltuieli_anual";
+            }else if (checkedId == R.id.radio_sit_gen_asoc) {
+                moptiuneaMea = "situatia_financiara_generala";
             }
 
+
+//            switch(checkedId) {
+//                case R.id.radio_cot_persoana:
+//                        moptiuneaMea = "cotizatie_persoana";
+//                    break;
+//                case R.id.radio_total_cot_pe_an:
+//                        moptiuneaMea = "total_cotizatie_anual";
+//                    break;
+//                case R.id.radio_chelt_asoc_an:
+//                        moptiuneaMea = "total_cheltuieli_anual";
+//                    break;
+//                case R.id.radio_sit_gen_asoc:
+//                        moptiuneaMea = "situatia_financiara_generala";
+//                    break;
+//            }
+
         });
+
+
 
         mbtnTrimite.setOnClickListener(v -> {
             manul = mEditTextAnul.getText().toString().trim();
 
-            if ((manul == null || manul.length() == 0) && !getOptiunea().equals("situatia_financiara_generala")) {
+            if ( manul.trim().isEmpty() && !getOptiunea().equals("situatia_financiara_generala")) {
                 Toast.makeText(this, R.string.lipsa_an, Toast.LENGTH_LONG).show();
 
             } else if (getOptiunea() == null)
@@ -144,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.rachete:
                 //startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://racheta-hateg.nicalemardan.ro/")));
-                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://racheta-hateg-responsive.sportandmath.tk/")));
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://racheta-hateg.nicalemardan.ro/")));
 
                 break;
 
