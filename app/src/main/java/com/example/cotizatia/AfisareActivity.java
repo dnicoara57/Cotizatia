@@ -26,7 +26,7 @@ public class AfisareActivity extends AppCompatActivity implements View.OnClickLi
 
     //ListView listView;
 
-    String result="";
+
     Button mbtnInapoi;
 
     public ArrayList<String> nume_cotizanti=new ArrayList<>();
@@ -41,10 +41,6 @@ public class AfisareActivity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_afisare);
-
-        //listView=(ListView)findViewById(R.id.listView) ;
-        //mAdapter=new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
-        //listView.setAdapter(mAdapter);
 
         //Retin in variabila manulTrimis valoarea trimisa din MainActivity
         manulTrimis=MainActivity.getAnul();
@@ -107,7 +103,7 @@ public class AfisareActivity extends AppCompatActivity implements View.OnClickLi
      **/
     @SuppressLint("SetTextI18n")
     public void addHeaders() {
-        TableLayout tl = findViewById(R.id.tableHeader);
+        TableLayout tl = findViewById(R.id.table);
         TableRow tr = new TableRow(this);
         tr.setLayoutParams(getLayoutParams());
 

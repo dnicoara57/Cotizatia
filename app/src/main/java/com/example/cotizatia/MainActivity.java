@@ -56,25 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 moptiuneaMea = "situatia_financiara_generala";
             }
 
-
-//            switch(checkedId) {
-//                case R.id.radio_cot_persoana:
-//                        moptiuneaMea = "cotizatie_persoana";
-//                    break;
-//                case R.id.radio_total_cot_pe_an:
-//                        moptiuneaMea = "total_cotizatie_anual";
-//                    break;
-//                case R.id.radio_chelt_asoc_an:
-//                        moptiuneaMea = "total_cheltuieli_anual";
-//                    break;
-//                case R.id.radio_sit_gen_asoc:
-//                        moptiuneaMea = "situatia_financiara_generala";
-//                    break;
-//            }
-
-        });
-
-
+       });
 
         mbtnTrimite.setOnClickListener(v -> {
             manul = mEditTextAnul.getText().toString().trim();
@@ -119,26 +101,19 @@ public class MainActivity extends AppCompatActivity {
     public void onRadioButtonClicked(View view) {
         boolean checked = ((RadioButton) view).isChecked();
 
-        // Check which radio button was clicked
-        switch(view.getId()) {
-            case R.id.radio_cot_persoana:
-                if(checked)
-                    moptiuneaMea = "cotizatie_persoana";
-                break;
-            case R.id.radio_total_cot_pe_an:
-                if(checked)
-                    moptiuneaMea = "total_cotizatie_anual";
-                break;
-            case R.id.radio_chelt_asoc_an:
-                if(checked)
-                    moptiuneaMea = "total_cheltuieli_anual";
-                break;
-            case R.id.radio_sit_gen_asoc:
-                if(checked)
-                    moptiuneaMea = "situatia_financiara_generala";
-                break;
-        }
+        if (!checked) return;  // nu face nimic dacă nu e selectat
 
+        int id = view.getId();
+
+        if (id == R.id.radio_cot_persoana) {
+            moptiuneaMea = "cotizatie_persoana";
+        } else if (id == R.id.radio_total_cot_pe_an) {
+            moptiuneaMea = "total_cotizatie_anual";
+        } else if (id == R.id.radio_chelt_asoc_an) {
+            moptiuneaMea = "total_cheltuieli_anual";
+        } else if (id == R.id.radio_sit_gen_asoc) {
+            moptiuneaMea = "situatia_financiara_generala";
+        }
     }
 
     @Override

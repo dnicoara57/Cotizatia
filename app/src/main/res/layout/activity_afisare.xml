@@ -1,23 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:paddingBottom="16dp"
-android:paddingLeft="16dp"
-android:paddingTop="16dp"
-android:paddingRight="16dp"
-android:gravity="top"
-tools:context=".AfisareActivity">
-
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".AfisareActivity">
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="fill_parent"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginEnd="143dp"
-        android:layout_marginBottom="65dp"
+        android:layout_marginBottom="12dp"
         android:background="@drawable/mybutton"
         android:gravity="center"
         android:padding="5dp"
@@ -25,54 +18,43 @@ tools:context=".AfisareActivity">
         android:textColor="@color/white"
         android:textSize="14sp" />
 
-
-
-    <TableLayout
-        android:id="@+id/tableHeader"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_above="@id/idScrolView"
-        android:stretchColumns="*" />
-
+    <!-- ScrollView care conține întregul tabel -->
     <ScrollView
         android:id="@+id/idScrolView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="50dp"
+        android:layout_height="match_parent"
+        android:layout_below="@id/textView"
+        android:layout_above="@id/layoutButonInapoi"
         android:scrollbars="vertical">
 
-        <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:ignore="RedundantNamespace">
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
             <TableLayout
                 android:id="@+id/table"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:stretchColumns="*" />
-
         </HorizontalScrollView>
-
     </ScrollView>
 
+    <!-- Buton jos -->
     <LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_alignParentBottom="true"
-    android:layout_centerHorizontal="true"
-    android:orientation="vertical">
-
-    <Button
-        android:id="@+id/buttonInapoi"
+        android:id="@+id/layoutButonInapoi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/mybutton"
-        android:textSize="12sp"
-        android:text="@string/iesire" />
-</LinearLayout>
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:layout_marginTop="8dp">
 
+        <Button
+            android:id="@+id/buttonInapoi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/mybutton"
+            android:textSize="12sp"
+            android:text="@string/iesire" />
+    </LinearLayout>
 </RelativeLayout>
