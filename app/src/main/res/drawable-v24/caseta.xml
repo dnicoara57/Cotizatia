@@ -4,9 +4,10 @@
     <item >
         <shape android:shape="rectangle" >
             <corners android:radius="10dp" />
-            <stroke android:width="1dp" android:color="@color/design_default_color_primary_dark" />
-            <solid android:color="@color/caseta"></solid>
-
+<!--            <stroke android:width="1dp" android:color="@color/design_default_color_primary_dark" />-->
+<!--            <solid android:color="@color/caseta"></solid>-->
+            <solid android:color="@color/sky_blue_bg" />
+            <stroke android:width="1dp" android:color="@color/sky_blue_stroke" />
         </shape>
     </item>
 </selector>

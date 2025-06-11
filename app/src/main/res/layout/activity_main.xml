@@ -17,7 +17,7 @@
         android:background="@drawable/caseta"
         android:text="@string/app_titlu_princ"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/edit_text_text"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -26,8 +26,9 @@
 
     <EditText
         android:id="@+id/editTextAnul"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:minHeight="48dp"
         android:layout_marginTop="56dp"
         android:layout_marginBottom="24dp"
         android:ems="10"
@@ -64,6 +65,9 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="64dp"
         android:background="@drawable/caseta"
+        android:padding="6dp"
+        android:clipToPadding="false"
+        android:layout_marginHorizontal="6dp"
         app:layout_constraintBottom_toTopOf="@+id/btnSend"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -75,8 +79,8 @@
             android:layout_height="wrap_content"
             android:checked="false"
             android:text="@string/SitCotMem"
-            android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:textColor="@color/edit_text_text"
+            android:textSize="13sp" />
 
         <RadioButton
             android:id="@+id/radio_total_cot_pe_an"
@@ -84,9 +88,10 @@
             android:layout_height="wrap_content"
             android:checked="false"
             android:text="@string/CotAsAn"
-            android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:textColor="@color/edit_text_text"
+            android:textSize="13sp" />
             <!--android:onClick="onRadioButtonClicked"-->
+<!--        android:textColor="@color/white"-->
 
         <RadioButton
             android:id="@+id/radio_chelt_asoc_an"
@@ -94,8 +99,8 @@
             android:layout_height="wrap_content"
             android:checked="false"
             android:text="@string/TotCheltAn"
-            android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:textColor="@color/edit_text_text"
+            android:textSize="13sp" />
 
         <RadioButton
             android:id="@+id/radio_sit_gen_asoc"
@@ -103,8 +108,8 @@
             android:layout_height="wrap_content"
             android:checked="false"
             android:text="@string/SitFinGen"
-            android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:textColor="@color/edit_text_text"
+            android:textSize="13sp" />
     </RadioGroup>
 
 

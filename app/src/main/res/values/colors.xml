@@ -11,4 +11,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="colorAccent">#DD3E3E</color>
+    <color name="sky_blue_bg0">#A4C8EB</color>
+    <color name="sky_blue_bg">#D0E7FF</color> <!-- Albastru cer senin, deschis -->
+    <color name="sky_blue_stroke">#90CAF9</color> <!-- Albastru mai accentuat pentru contur -->
+    <color name="edit_text_text">#0F3057</color> <!-- Aproape negru, dar nu chiar -->
+
 </resources>
