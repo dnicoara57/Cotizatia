@@ -73,7 +73,7 @@ public class AfisareActivity extends AppCompatActivity implements View.OnClickLi
         tv.setText(title.toUpperCase());
         tv.setTextColor(color);
 //        tv.setTextSize(TypedValue.COMPLEX_UNIT_SP,textSizeInPx);
-        tv.setTextSize(10);
+        tv.setTextSize(14);
         tv.setPadding(40, 40, 40, 40);
         tv.setTypeface(Typeface.DEFAULT, typeface);
         tv.setBackgroundColor(bgColor);
@@ -124,6 +124,13 @@ public class AfisareActivity extends AppCompatActivity implements View.OnClickLi
                 tr.addView(getTextView(0, "Total cotizatie", Color.parseColor("#FFD700"), Typeface.BOLD, Color.BLUE));
                 tl.addView(tr, getTblLayoutParams());
                 break;
+            case "total_donatii_anual":
+                mTextView.setText("Total donatii primite pe anul : " + manulTrimis);
+                tr.addView(getTextView(0, "Nr.donatii", Color.parseColor("#FFD700"), Typeface.BOLD, Color.BLUE));
+                tr.addView(getTextView(0, "Anul", Color.parseColor("#FFD700"), Typeface.BOLD, Color.BLUE));
+                tr.addView(getTextView(0, "Total donatii", Color.parseColor("#FFD700"), Typeface.BOLD, Color.BLUE));
+                tl.addView(tr, getTblLayoutParams());
+                break;
 
             case "total_cheltuieli_anual":
                 mTextView.setText("Cheltuieli asociatie pe anul : " + manulTrimis);
@@ -167,6 +174,12 @@ public class AfisareActivity extends AppCompatActivity implements View.OnClickLi
                     tl.addView(tr, getTblLayoutParams());
                     break;
                 case "total_cotizatie_anual":
+                    tr.addView(getTextView(i + 1,nume_cotizanti.get(i), Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this, R.color.colorAccent)));
+                    tr.addView(getTextView(i + 1+numRecords,prenume_cotizanti.get(i), Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this, R.color.colorAccent)));
+                    tr.addView(getTextView(i + 1+2*numRecords, total_cotizatie.get(i), Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this, R.color.colorAccent)));
+                    tl.addView(tr, getTblLayoutParams());
+                    break;
+                case "total_donatii_anual":
                     tr.addView(getTextView(i + 1,nume_cotizanti.get(i), Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this, R.color.colorAccent)));
                     tr.addView(getTextView(i + 1+numRecords,prenume_cotizanti.get(i), Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this, R.color.colorAccent)));
                     tr.addView(getTextView(i + 1+2*numRecords, total_cotizatie.get(i), Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this, R.color.colorAccent)));

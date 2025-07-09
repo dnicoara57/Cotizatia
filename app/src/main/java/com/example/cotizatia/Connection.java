@@ -104,7 +104,9 @@ public class Connection {
 
                     String numele = cot.getString("Nume");
                     String prenumele = cot.getString("Prenume");
-                    int total = cot.getInt("total");
+                    double total = cot.getDouble("total");
+
+                    //int total = cot.getInt("total");
 
                     mActivity.nume_cotizanti.add(numele);
                     mActivity.prenume_cotizanti.add(prenumele);

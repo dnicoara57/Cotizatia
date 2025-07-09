@@ -5,5 +5,8 @@
         <item name="android:textSize">16sp</item>
         <item name="fontFamily">cursive</item>
     </style>
-
+    <style name="RadioButtonStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/edit_text_text</item>
+    </style>
 </resources>

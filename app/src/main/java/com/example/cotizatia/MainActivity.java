@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 //Pentru setarea marimii fontului in appBar
         if (getSupportActionBar() != null) {
             TextView customTitle = new TextView(this);
-            customTitle.setText("Cotizația"); // titlul pe care dorim  să-l afișam
+            customTitle.setText("Cotizația A.S.Racheta"); // titlul pe care dorim  să-l afișam
             customTitle.setTextSize(18); //  Aici setezi mărimea fontului
             customTitle.setTextColor(ContextCompat.getColor(this, R.color.white)); // sau Color.WHITE
             customTitle.setTypeface(null, android.graphics.Typeface.BOLD); // opțional
@@ -72,7 +72,9 @@ public class MainActivity extends AppCompatActivity {
                 moptiuneaMea = "cotizatie_persoana";
             } else if (checkedId == R.id.radio_total_cot_pe_an) {
                 moptiuneaMea = "total_cotizatie_anual";
-            } else if (checkedId == R.id.radio_chelt_asoc_an) {
+            }else if (checkedId == R.id.radio_donatii_asoc_an) {
+                moptiuneaMea = "total_donatii_anual";
+            }else if (checkedId == R.id.radio_chelt_asoc_an) {
                 moptiuneaMea = "total_cheltuieli_anual";
             }else if (checkedId == R.id.radio_sit_gen_asoc) {
                 moptiuneaMea = "situatia_financiara_generala";
@@ -156,6 +158,8 @@ public class MainActivity extends AppCompatActivity {
             moptiuneaMea = "cotizatie_persoana";
         } else if (id == R.id.radio_total_cot_pe_an) {
             moptiuneaMea = "total_cotizatie_anual";
+        } else if (id == R.id.radio_donatii_asoc_an) {
+            moptiuneaMea = "total_donatii_anual";
         } else if (id == R.id.radio_chelt_asoc_an) {
             moptiuneaMea = "total_cheltuieli_anual";
         } else if (id == R.id.radio_sit_gen_asoc) {

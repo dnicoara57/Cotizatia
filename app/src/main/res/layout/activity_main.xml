@@ -18,7 +18,8 @@
         android:text="@string/app_titlu_princ"
         android:textAlignment="center"
         android:textColor="@color/edit_text_text"
-        android:textSize="16sp"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,7 +52,8 @@
         android:background="@drawable/mybutton"
         android:text="@string/afiseaza"
         android:textAllCaps="false"
-        android:textSize="12sp"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -74,42 +76,51 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextAnul">
 
         <RadioButton
+            style="@style/RadioButtonStyle"
             android:id="@+id/radio_cot_persoana"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="false"
             android:text="@string/SitCotMem"
-            android:textColor="@color/edit_text_text"
-            android:textSize="13sp" />
+             />
 
         <RadioButton
+            style="@style/RadioButtonStyle"
             android:id="@+id/radio_total_cot_pe_an"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="false"
             android:text="@string/CotAsAn"
-            android:textColor="@color/edit_text_text"
-            android:textSize="13sp" />
+            />
             <!--android:onClick="onRadioButtonClicked"-->
 <!--        android:textColor="@color/white"-->
 
         <RadioButton
+            style="@style/RadioButtonStyle"
+            android:id="@+id/radio_donatii_asoc_an"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:text="@string/TotDonatii"
+            />
+
+        <RadioButton
+            style="@style/RadioButtonStyle"
             android:id="@+id/radio_chelt_asoc_an"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="false"
             android:text="@string/TotCheltAn"
-            android:textColor="@color/edit_text_text"
-            android:textSize="13sp" />
+            />
 
         <RadioButton
+            style="@style/RadioButtonStyle"
             android:id="@+id/radio_sit_gen_asoc"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="false"
             android:text="@string/SitFinGen"
-            android:textColor="@color/edit_text_text"
-            android:textSize="13sp" />
+            />
     </RadioGroup>
 
 
