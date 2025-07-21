@@ -1,4 +1,4 @@
-package com.example.cotizatia;
+package com.danielapps.cotizatia;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;

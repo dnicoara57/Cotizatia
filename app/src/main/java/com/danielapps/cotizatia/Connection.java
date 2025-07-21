@@ -1,12 +1,10 @@
-package com.example.cotizatia;
+package com.danielapps.cotizatia;
 
 import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 import android.widget.Toast;
-
-import com.example.cotizatia.AfisareActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;

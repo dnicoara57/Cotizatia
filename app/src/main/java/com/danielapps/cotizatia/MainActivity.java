@@ -1,4 +1,4 @@
-package com.example.cotizatia;
+package com.danielapps.cotizatia;
 
 import android.app.Activity;
 import android.content.Intent;

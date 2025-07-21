@@ -1,4 +1,4 @@
-package com.example.cotizatia;
+package com.danielapps.cotizatia;
 
 import android.content.Context;
 import android.widget.Toast;
@@ -16,7 +16,6 @@ import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 
 public class ConnectionTask {
 
