@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/snackbar_background"
+    android:clipToOutline="true"
+    android:elevation="6dp">
+
+    <ImageView
+        android:id="@+id/snackbar_icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/ic_success" />
+
+    <TextView
+        android:id="@+id/snackbar_text"
+        android:text="Mesaj"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

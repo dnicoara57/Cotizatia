@@ -15,6 +15,9 @@ import org.json.JSONObject;
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.danielapps.cotizatia.utils.MessageType;
+import com.danielapps.cotizatia.utils.SnackbarUtils;
+import com.google.android.material.snackbar.Snackbar;
 
 public class activity_login extends AppCompatActivity {
     EditText emailInput;
@@ -57,7 +60,8 @@ public class activity_login extends AppCompatActivity {
                         // 🎉 Mesaj de bun venit cu nume complet (dacă există)
                         String nume = response.optString("nume");
                         String prenume = response.optString("prenume");
-                        Toast.makeText(this, "Bun venit, " + prenume + " " + nume, Toast.LENGTH_LONG).show();
+                        //Toast.makeText(this, "Bun venit, " + prenume + " " + nume, Toast.LENGTH_LONG).show();
+
 
                         // 💾 Salvăm totul în sesiune
                         SharedPreferences prefs = getSharedPreferences("user_session", MODE_PRIVATE);
@@ -69,8 +73,14 @@ public class activity_login extends AppCompatActivity {
                                 .apply();
 
                         // 🔁 Redirecționare către activitatea principală
-                        startActivity(new Intent(this, MainActivity.class));
+                        Intent intent = new Intent(this, MainActivity.class);
+                        intent.putExtra("welcome_message", "✅ Bun venit, " + prenume + " " + nume);
+                        startActivity(intent);
                         finish();
+
+
+                        //startActivity(new Intent(this, MainActivity.class));
+                        //finish();
                     },
                     error -> {
                         String mesaj = "Autentificare eșuată";

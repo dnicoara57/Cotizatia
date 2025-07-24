@@ -23,6 +23,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.danielapps.cotizatia.utils.MessageType;
+import com.danielapps.cotizatia.utils.SnackbarUtils;
+import com.google.android.material.snackbar.Snackbar;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,6 +43,19 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+// Verifică dacă a fost transmis un mesaj de bun venit
+        String mesaj = getIntent().getStringExtra("welcome_message");
+        if (mesaj != null) {
+            SnackbarUtils.showCustomSnackbar(
+                    findViewById(android.R.id.content),
+                    mesaj,
+                    MessageType.SUCCESS,
+                    Snackbar.LENGTH_LONG,
+                    null,
+                    null,
+                    80
+            );
+        }
 
 //Pentru setarea marimii fontului in appBar
         if (getSupportActionBar() != null) {
