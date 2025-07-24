@@ -40,6 +40,8 @@
                     android:scheme="https" />
             </intent-filter>
         </activity>
+        <activity android:name=".PaymentActivity" android:exported="false" />
+        <activity android:name=".WebViewActivity" android:exported="false" />
     </application>
 
 </manifest>

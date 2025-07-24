@@ -47,8 +47,9 @@
 
     <Button
         android:id="@+id/btnSend"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
         android:background="@drawable/mybutton"
         android:text="@string/afiseaza"
         android:textAllCaps="false"
@@ -56,71 +57,82 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAnul"
-        app:layout_constraintVertical_bias="0.896" />
+        app:layout_constraintTop_toBottomOf="@+id/radio_grup"
+        app:layout_constraintVertical_bias="0.796" />
+
+    <Button
+        android:id="@+id/btnPlataOnline"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/mybutton"
+        android:text="@string/PlataOnline"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSend" />
+
 
     <RadioGroup
         android:id="@+id/radio_grup"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
-        android:background="@drawable/caseta"
-        android:padding="6dp"
-        android:clipToPadding="false"
         android:layout_marginHorizontal="6dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/caseta"
+        android:clipToPadding="false"
+        android:padding="6dp"
         app:layout_constraintBottom_toTopOf="@+id/btnSend"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextAnul">
 
         <RadioButton
-            style="@style/RadioButtonStyle"
             android:id="@+id/radio_cot_persoana"
+            style="@style/RadioButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="@string/SitCotMem"
-             />
+            android:text="@string/SitCotMem" />
 
         <RadioButton
-            style="@style/RadioButtonStyle"
             android:id="@+id/radio_total_cot_pe_an"
+            style="@style/RadioButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="@string/CotAsAn"
-            />
-            <!--android:onClick="onRadioButtonClicked"-->
-<!--        android:textColor="@color/white"-->
+            android:text="@string/CotAsAn" />
+        <!--android:onClick="onRadioButtonClicked"-->
+        <!--        android:textColor="@color/white"-->
 
         <RadioButton
-            style="@style/RadioButtonStyle"
             android:id="@+id/radio_donatii_asoc_an"
+            style="@style/RadioButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="@string/TotDonatii"
-            />
+            android:text="@string/TotDonatii" />
 
         <RadioButton
-            style="@style/RadioButtonStyle"
             android:id="@+id/radio_chelt_asoc_an"
+            style="@style/RadioButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="@string/TotCheltAn"
-            />
+            android:text="@string/TotCheltAn" />
 
         <RadioButton
-            style="@style/RadioButtonStyle"
             android:id="@+id/radio_sit_gen_asoc"
+            style="@style/RadioButtonStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:checked="false"
-            android:text="@string/SitFinGen"
-            />
+            android:text="@string/SitFinGen" />
     </RadioGroup>
 
 

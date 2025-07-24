@@ -28,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
 
     EditText mEditTextAnul;
     Button mbtnTrimite;
+
+    Button btnPlataOnline;
     private static String manul;
     private static String moptiuneaMea;
 
@@ -61,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
         mEditTextAnul = findViewById(R.id.editTextAnul);
         mbtnTrimite = findViewById(R.id.btnSend);
         RadioGroup mradioGroup = findViewById(R.id.radio_grup);
-
+        btnPlataOnline = findViewById(R.id.btnPlataOnline);
         //Aici se trateaza evenimentul de selectare a unui radiobuton
 
         mradioGroup.setOnCheckedChangeListener((group, checkedId) -> {
@@ -100,6 +102,13 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        btnPlataOnline.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, PaymentActivity.class);
+            startActivity(intent);
+        });
+
+
+
     }
 
     //Custom Toast
@@ -119,7 +128,6 @@ public class MainActivity extends AppCompatActivity {
 
         toast.show();
     }
-
 
     //aici preiau datele trimise din AfisareActivity
     ActivityResultLauncher<Intent> intentLaunch = registerForActivityResult(

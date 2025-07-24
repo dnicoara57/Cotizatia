@@ -15,6 +15,10 @@
     <string name="Auth">Autentificare</string>
     <string name="Hint">Email</string>
 
+    <string name="email_hint">Email</string>
+    <string name="nume_platitor_hint">Nume Plătitor</string>
+    <string name="suma_hint">Suma (RON)</string>
+    <string name="renunta">Renunță</string>
 
     <string name="Statistici">Statistici asociatie</string>
     <string name="SitCotMem">Situatia cotizatiei pe membru</string>
@@ -22,6 +26,14 @@
     <string name="TotCheltAn">Total cheltuieli asociatie pe an</string>
     <string name="SitFinGen">Situatia financiara generala</string>
     <string name="TotDonatii">Total donatii primite pe an</string>
+    <string name="PlataOnline">Plateste cotizatia online</string>
+
+    <string-array name="tip_plata_options">
+        <item>Cotizatie</item>
+        <item>Donatie</item>
+    </string-array>
+
+
 
     <string name="TitluHelp">Cateva precizari pentru folosirea aplicatiei</string>
 
@@ -34,6 +46,7 @@
     - situatia anuala a donatiilor primite de asociatiei\n
     - situatia cheltuielilor asociatiei\n
     - situatia cu total venituri si cheltuieli\n
+    - puteti plati cotizatia sau face donatii online in deplina siguranta\n
     - puteti accesa situl A.S."Racheta" pentru maimulte informatii\n\n</string>
 
     <string name="Continut3Help">Pentru a vizualiza informatiile , introduceti anul pe care il doriti si apoi selectati optiunea de afisare dorita\n\n
