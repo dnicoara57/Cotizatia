@@ -1,5 +1,7 @@
 package com.danielapps.cotizatia;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Handler;
 import android.os.Looper;
 
@@ -65,9 +67,27 @@ public class WebViewActivity extends AppCompatActivity {
                 } else if (url.contains("/PlatiOnline/Failed")) {
                     showSnackbarAndFinish("❌ Plată eșuată!", MessageType.ERROR);
                     return true;
+                } else if (url.startsWith("intent://")) {
+                    try {
+                        Intent intent = Intent.parseUri(url, Intent.URI_INTENT_SCHEME);
+                        if (intent != null) {
+                            startActivity(intent);
+                            return true;
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                } else if (!url.startsWith("https://racheta-hateg.nicalemardan.ro")) {
+                    // Link extern – deschide în browser
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(intent);
+                    return true;
                 }
+
+                // URL intern valid – lasă WebView-ul să continue
                 return false;
             }
+
         });
 
         webView.loadUrl(url);

@@ -42,7 +42,7 @@
     <!-- Buton jos -->
     <LinearLayout
         android:id="@+id/layoutButonInapoi"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
@@ -51,7 +51,7 @@
 
         <Button
             android:id="@+id/buttonInapoi"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/mybutton"
             android:textSize="16sp"
