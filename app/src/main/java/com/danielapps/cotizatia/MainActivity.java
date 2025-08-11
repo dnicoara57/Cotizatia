@@ -95,36 +95,42 @@ public class MainActivity extends AppCompatActivity {
                 moptiuneaMea = "total_donatii_anual";
             }else if (checkedId == R.id.radio_chelt_asoc_an) {
                 moptiuneaMea = "total_cheltuieli_anual";
+            }else if (checkedId == R.id.radio_sit_gen_anuala) {
+                moptiuneaMea = "balanta_generala_anual";
             }else if (checkedId == R.id.radio_sit_gen_asoc) {
                 moptiuneaMea = "situatia_financiara_generala";
             }
 
        });
 
+
         mbtnTrimite.setOnClickListener(v -> {
             manul = mEditTextAnul.getText().toString().trim();
+            String optiunea = getOptiunea();
 
-            if ( manul.trim().isEmpty() && !getOptiunea().equals("situatia_financiara_generala")) {
-                showCustomToast(getString(R.string.lipsa_an));
-                //Toast.makeText(this, R.string.lipsa_an, Toast.LENGTH_LONG).show();
-
-            } else if (getOptiunea() == null)
-                showCustomToast(getString(R.string.lipsa_optiune));
-            //Toast.makeText(this, R.string.lipsa_optiune, Toast.LENGTH_LONG).show();
-            else {
-                Intent intent = new Intent(MainActivity.this, AfisareActivity.class);
-                //startActivity(intent);
-                intentLaunch.launch(intent);  //in loc de startActivityForResult(intent,1) care este deprecated
+            if (manul.isEmpty()) {
+                if ("situatia_financiara_generala".equals(optiunea)) {
+                    manul = "1900"; // sau orice alt an care nu interferează cu datele reale
+                } else {
+                    showCustomToast(getString(R.string.lipsa_an));
+                    return;
+                }
             }
 
+            if (optiunea == null) {
+                showCustomToast(getString(R.string.lipsa_optiune));
+            } else {
+                Intent intent = new Intent(MainActivity.this, AfisareActivity.class);
+                intent.putExtra("anul", manul);
+                intent.putExtra("optiunea", optiunea);
+                intentLaunch.launch(intent);
+            }
         });
 
         btnPlataOnline.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, PaymentActivity.class);
             startActivity(intent);
         });
-
-
 
     }
 
@@ -147,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //aici preiau datele trimise din AfisareActivity
+
     ActivityResultLauncher<Intent> intentLaunch = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             result -> {
@@ -156,12 +163,20 @@ public class MainActivity extends AppCompatActivity {
                         String data = dataIntent.getStringExtra("dan");
                         // Folosește variabila `data` cum ai nevoie
                     }
-                } else {
+                } else if (result.getResultCode() == Activity.RESULT_CANCELED) {
                     mEditTextAnul.setText("");
+                    refreshUI(); // o metodă care readuce layout-ul la starea inițială
                 }
             }
     );
 
+    private void refreshUI() {
+        //Toast.makeText(this, "refreshUI called", Toast.LENGTH_SHORT).show();
+        View layout = findViewById(R.id.mainLayout);
+        layout.setVisibility(View.VISIBLE); // dacă era ascuns
+        layout.invalidate(); // forțează redesenarea
+        layout.requestLayout(); // reface constrângerile
+    }
 
     public static String getAnul()
     {
@@ -187,7 +202,9 @@ public class MainActivity extends AppCompatActivity {
             moptiuneaMea = "total_donatii_anual";
         } else if (id == R.id.radio_chelt_asoc_an) {
             moptiuneaMea = "total_cheltuieli_anual";
-        } else if (id == R.id.radio_sit_gen_asoc) {
+        }else if (id == R.id.radio_sit_gen_anuala) {
+            moptiuneaMea = "balanta_generala_anual";
+        }else if (id == R.id.radio_sit_gen_asoc) {
             moptiuneaMea = "situatia_financiara_generala";
         }
     }

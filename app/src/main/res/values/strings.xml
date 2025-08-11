@@ -25,6 +25,7 @@
     <string name="CotAsAn">Cotizatie asociatie pe an</string>
     <string name="TotCheltAn">Total cheltuieli asociatie pe an</string>
     <string name="SitFinGen">Situatia financiara generala</string>
+    <string name="SitFinAnuala">Situatia financiara anuala</string>
     <string name="TotDonatii">Total donatii primite pe an</string>
     <string name="PlataOnline">Plateste cotizatia online</string>
 

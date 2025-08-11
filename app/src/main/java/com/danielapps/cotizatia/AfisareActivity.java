@@ -140,7 +140,14 @@ public class AfisareActivity extends AppCompatActivity implements View.OnClickLi
                 tr.addView(getTextView(0, "Total cost", Color.parseColor("#FFD700"), Typeface.BOLD, Color.BLUE));
                 tl.addView(tr, getTblLayoutParams());
                 break;
+            case "balanta_generala_anual":
+                mTextView.setText("Situatia financiara anuala : "+ manulTrimis);
+                tr.addView(getTextView(0, "Tot.venituri", Color.parseColor("#FFD700"), Typeface.BOLD, Color.BLUE));
+                tr.addView(getTextView(0, "Tot.cheltuieli", Color.parseColor("#FFD700"), Typeface.BOLD, Color.BLUE));
+                tr.addView(getTextView(0, "Sold", Color.parseColor("#FFD700"), Typeface.BOLD, Color.BLUE));
+                tl.addView(tr, getTblLayoutParams());
 
+                break;
             case "situatia_financiara_generala":
                 mTextView.setText("Situatia financiara generala");
                 tr.addView(getTextView(0, "Tot.venituri", Color.parseColor("#FFD700"), Typeface.BOLD, Color.BLUE));
@@ -193,7 +200,13 @@ public class AfisareActivity extends AppCompatActivity implements View.OnClickLi
                     tl.addView(tr, getTblLayoutParams());
 
                     break;
+                case "balanta_generala_anual":
+                    tr.addView(getTextView(i + 1,nume_cotizanti.get(i), Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this, R.color.colorAccent)));
+                    tr.addView(getTextView(i + 1+numRecords,prenume_cotizanti.get(i), Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this, R.color.colorAccent)));
+                    tr.addView(getTextView(i + 1+2*numRecords, total_cotizatie.get(i), Color.WHITE, Typeface.BOLD, ContextCompat.getColor(this, R.color.colorAccent)));
+                    tl.addView(tr, getTblLayoutParams());
 
+                    break;
                 case "situatia_financiara_generala":
                     tr.addView(getTextView(i + 1,nume_cotizanti.get(i), Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this, R.color.colorAccent)));
                     tr.addView(getTextView(i + 1+numRecords,prenume_cotizanti.get(i), Color.WHITE, Typeface.NORMAL, ContextCompat.getColor(this, R.color.colorAccent)));

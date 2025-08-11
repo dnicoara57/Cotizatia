@@ -9,6 +9,7 @@
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -85,6 +86,13 @@
                 android:layout_height="wrap_content"
                 android:checked="false"
                 android:text="@string/TotCheltAn" />
+            <RadioButton
+                android:id="@+id/radio_sit_gen_anuala"
+                style="@style/RadioButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="@string/SitFinAnuala" />
 
             <RadioButton
                 android:id="@+id/radio_sit_gen_asoc"
