@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Looper;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
@@ -75,7 +76,7 @@ public class WebViewActivity extends AppCompatActivity {
                             return true;
                         }
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        Log.e("handleUrl", "Eroare la parsarea intentului: " + url, e);
                     }
                 } else if (!url.startsWith("https://racheta-hateg.nicalemardan.ro")) {
                     // Link extern – deschide în browser

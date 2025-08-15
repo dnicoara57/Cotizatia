@@ -15,9 +15,6 @@ import org.json.JSONObject;
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.danielapps.cotizatia.utils.MessageType;
-import com.danielapps.cotizatia.utils.SnackbarUtils;
-import com.google.android.material.snackbar.Snackbar;
 
 public class activity_login extends AppCompatActivity {
     EditText emailInput;
@@ -74,7 +71,7 @@ public class activity_login extends AppCompatActivity {
 
                         // 🔁 Redirecționare către activitatea principală
                         Intent intent = new Intent(this, MainActivity.class);
-                        intent.putExtra("welcome_message", "✅ Bun venit, " + prenume + " " + nume);
+                        intent.putExtra("welcome_message", "Bun venit, " + prenume + " " + nume);
                         startActivity(intent);
                         finish();
 
@@ -86,17 +83,12 @@ public class activity_login extends AppCompatActivity {
                         String mesaj = "Autentificare eșuată";
 
                         if (error.networkResponse != null) {
-                            switch (error.networkResponse.statusCode) {
-                                case 401:
-                                    mesaj = "Email invalid sau membru inactiv";
-                                    break;
-                                case 400:
-                                    mesaj = "Cerere incorectă";
-                                    break;
-                                case 500:
-                                    mesaj = "Eroare server";
-                                    break;
-                            }
+                            mesaj = switch (error.networkResponse.statusCode) {
+                                case 401 -> "Email invalid sau membru inactiv";
+                                case 400 -> "Cerere incorectă";
+                                case 500 -> "Eroare server";
+                                default -> "Eroare necunoscută";
+                            };
                         }
 
                         Toast.makeText(this, mesaj, Toast.LENGTH_SHORT).show();

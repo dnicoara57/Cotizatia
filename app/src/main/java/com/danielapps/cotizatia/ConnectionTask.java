@@ -19,10 +19,11 @@ import java.util.concurrent.Executors;
 
 public class ConnectionTask {
 
-    private Context context;
-    private String manul;
-    private String moptiuneaMea;
-    private AfisareActivity mActivity;
+    private final Context context;
+    private final String manul;
+    private final String moptiuneaMea;
+    private final AfisareActivity mActivity;
+
 
     public ConnectionTask(Context ctx, AfisareActivity activity, String anTrimis, String Myop) {
         this.context = ctx;

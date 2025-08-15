@@ -1,0 +1,138 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Titlu dinamic -->
+        <TextView
+            android:id="@+id/textViewTitlu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/titlu_dinamic"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#041B2E"
+            android:gravity="center"
+            android:layout_marginBottom="8dp" />
+
+        <!-- Data curentă (opțional) -->
+        <TextView
+            android:id="@+id/textViewData"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/data_placeholder"
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:gravity="center"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Caseta balanței -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="16dp"
+            android:elevation="4dp"
+            android:layout_marginBottom="32dp">
+
+            <!-- Cotizații -->
+            <TextView
+                android:id="@+id/textCotizatie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/total_cotizatie"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/venit_color"
+                android:layout_marginBottom="12dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDDDDD"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Donații -->
+            <TextView
+                android:id="@+id/textDonatii"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/total_donatii"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/venit_color"
+                android:layout_marginBottom="12dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDDDDD"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Cheltuieli -->
+            <TextView
+                android:id="@+id/textCheltuieli"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/total_cheltuieli"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/cheltuieli_color"
+                android:layout_marginBottom="12dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDDDDD"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Comisioane -->
+            <TextView
+                android:id="@+id/textComisioane"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/total_comisioane"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/cheltuieli_color"
+                android:layout_marginBottom="12dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DDDDDD"
+                android:layout_marginBottom="12dp" />
+
+            <!-- Sold -->
+            <TextView
+                android:id="@+id/textSold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/total_sold"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/sold_color"
+                android:layout_marginBottom="12dp" />
+        </LinearLayout>
+
+        <!-- Buton Înapoi -->
+        <Button
+            android:id="@+id/buttonInapoi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Înapoi la meniul principal"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/white"
+            android:background="@drawable/mybutton"
+
+            android:layout_marginBottom="32dp" />
+    </LinearLayout>
+</ScrollView>

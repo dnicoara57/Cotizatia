@@ -5,8 +5,8 @@
     <string name="racheta">Site-Racheta</string>
     <string name="help">Help</string>
     <string name="logout">Iesire</string>
-    <string name="iesire">Inchide</string>
-    <string name="afiseaza"><font fgcolor="#ffffff">Afiseaza</font></string>
+    <string name="iesire">Inchide pagina</string>
+    <string name="afiseaza"><font fgcolor="#ffffff">Afiseaza optiune selectata</font></string>
 
     <string name="lipsa_an"><font fgcolor="#ff9a1d1d"><big><b>Nu ati introdus anul cautarii !</b></big></font></string>
     <string name="lipsa_optiune"><font fgcolor="#ff9a1d1d"><big><b>Nu ati ales optiunea cautarii !</b></big></font></string>
@@ -28,6 +28,23 @@
     <string name="SitFinAnuala">Situatia financiara anuala</string>
     <string name="TotDonatii">Total donatii primite pe an</string>
     <string name="PlataOnline">Plateste cotizatia online</string>
+    <string name="BalantaDetails">Balanta-detalii</string>
+
+    <string name="total_cotizatie">Total cotizație: %1$s lei</string>
+    <string name="total_donatii">Total donații: %1$s lei</string>
+    <string name="total_cheltuieli">Total cheltuieli: %1$s lei</string>
+    <string name="total_comisioane">Comisioane plăți online: %1$s lei</string>
+    <string name="total_sold">Sold rămas: %1$s lei</string>
+
+    <string name="inapoi_la_main">Înapoi la ecranul principal</string>
+
+    <!-- Titluri -->
+    <string name="titlu_dinamic">Titlu dinamic</string>
+    <string name="data_placeholder">14 august 2025</string>
+
+    <string name="error_processing_data">Eroare la procesarea datelor</string>
+    <string name="error_api_connection">Eroare la conectarea cu API-ul</string>
+    <string name="error_network">Eroare rețea. Verifică conexiunea la internet.</string>
 
     <string-array name="tip_plata_options">
         <item>Cotizatie</item>
@@ -47,6 +64,8 @@
     - situatia anuala a donatiilor primite de asociatiei\n
     - situatia cheltuielilor asociatiei\n
     - situatia cu total venituri si cheltuieli\n
+    - situatia financiara pentru anul selectat\n
+    - balanta detaliata atat pe anul selectat cat si balanta generala\n
     - puteti plati cotizatia sau face donatii online in deplina siguranta\n
     - puteti accesa situl A.S."Racheta" pentru maimulte informatii\n\n</string>
 

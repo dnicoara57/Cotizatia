@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -34,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     Button mbtnTrimite;
 
     Button btnPlataOnline;
+    Button btnBalantaDetalii;
     private static String manul;
     private static String moptiuneaMea;
 
@@ -53,14 +55,14 @@ public class MainActivity extends AppCompatActivity {
                     Snackbar.LENGTH_LONG,
                     null,
                     null,
-                    80
+                    70
             );
         }
 
 //Pentru setarea marimii fontului in appBar
         if (getSupportActionBar() != null) {
             TextView customTitle = new TextView(this);
-            customTitle.setText("Cotizația A.S.Racheta"); // titlul pe care dorim  să-l afișam
+            customTitle.setText(getString(R.string.app_name)); // titlul pe care dorim  să-l afișam
             customTitle.setTextSize(18); //  Aici setezi mărimea fontului
             customTitle.setTextColor(ContextCompat.getColor(this, R.color.white)); // sau Color.WHITE
             customTitle.setTypeface(null, android.graphics.Typeface.BOLD); // opțional
@@ -81,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
         mbtnTrimite = findViewById(R.id.btnSend);
         RadioGroup mradioGroup = findViewById(R.id.radio_grup);
         btnPlataOnline = findViewById(R.id.btnPlataOnline);
+        btnBalantaDetalii = findViewById(R.id.btnBalantaDetalii);
+
         //Aici se trateaza evenimentul de selectare a unui radiobuton
 
         mradioGroup.setOnCheckedChangeListener((group, checkedId) -> {
@@ -112,7 +116,15 @@ public class MainActivity extends AppCompatActivity {
                 if ("situatia_financiara_generala".equals(optiunea)) {
                     manul = "1900"; // sau orice alt an care nu interferează cu datele reale
                 } else {
-                    showCustomToast(getString(R.string.lipsa_an));
+                    View rootView = findViewById(android.R.id.content); // sau R.id.root_layout dacă ai unul definit
+                    MessageType type = MessageType.WARNING; // sau ERROR / WARNING în funcție de context
+                    int duration = Snackbar.LENGTH_LONG;
+                    String actionText = null; // sau "OK" dacă vrei o acțiune
+                    View.OnClickListener actionListener = null; // sau definește acțiunea
+                    int offsetYdp = 70; // cât de sus să fie Snackbar-ul
+                    String mesajul=getString(R.string.lipsa_an);
+                    SnackbarUtils.showCustomSnackbar(rootView, mesajul, type, duration, actionText, actionListener, offsetYdp);
+                    //showCustomToast(getString(R.string.lipsa_an));
                     return;
                 }
             }
@@ -132,24 +144,40 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+
+        btnBalantaDetalii.setOnClickListener(v -> {
+            // Intent către activitatea detaliată
+            manul = mEditTextAnul.getText().toString().trim();
+            Intent intent = new Intent(MainActivity.this, BalantaDetaliiActivity.class);
+            if (manul != null && !manul.isEmpty()) {
+                intent.putExtra("anul", manul); // trimite ca String
+            }
+            startActivity(intent);
+
+        });
+
+
     }
 
     //Custom Toast
     private void showCustomToast(String mesaj) {
-        LayoutInflater inflater = getLayoutInflater();
-        View layout = inflater.inflate(R.layout.custom_toast, findViewById(R.id.toast_layout_root));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            // Android 11+ (API 30): evităm setView()
+            Toast.makeText(getApplicationContext(), mesaj, Toast.LENGTH_LONG).show();
+        } else {
+            // Versiuni mai vechi: folosește layout personalizat
+            LayoutInflater inflater = getLayoutInflater();
+            View layout = inflater.inflate(R.layout.custom_toast, findViewById(R.id.toast_layout_root));
 
-        TextView text = layout.findViewById(R.id.text_toast);
-        text.setText(mesaj);
+            TextView text = layout.findViewById(R.id.text_toast);
+            text.setText(mesaj);
 
-        Toast toast = new Toast(getApplicationContext());
-        toast.setDuration(Toast.LENGTH_LONG);
-        toast.setView(layout);
-
-        // Poziționează toast-ul: centru-sus, la 200 pixeli distanță de top
-        toast.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 200);
-
-        toast.show();
+            Toast toast = new Toast(getApplicationContext());
+            toast.setDuration(Toast.LENGTH_LONG);
+            toast.setGravity(Gravity.TOP | Gravity.CENTER_HORIZONTAL, 0, 200);
+            toast.setView(layout); // ⚠️ Deprecated, dar funcțional pe API < 30
+            toast.show();
+        }
     }
 
     //aici preiau datele trimise din AfisareActivity
@@ -176,6 +204,14 @@ public class MainActivity extends AppCompatActivity {
         layout.setVisibility(View.VISIBLE); // dacă era ascuns
         layout.invalidate(); // forțează redesenarea
         layout.requestLayout(); // reface constrângerile
+    }
+
+    //Se executa la revenirea in MainActivity
+    @Override
+    protected void onResume() {
+        super.onResume();
+        EditText editTextAn = findViewById(R.id.editTextAnul);
+        editTextAn.setText(""); // golește anul
     }
 
     public static String getAnul()

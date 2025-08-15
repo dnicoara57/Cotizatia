@@ -29,9 +29,9 @@ public class AfisareActivity extends AppCompatActivity implements View.OnClickLi
 
     Button mbtnInapoi;
 
-    public ArrayList<String> nume_cotizanti=new ArrayList<>();
-    public ArrayList<String>prenume_cotizanti=new ArrayList<>();
-    public ArrayList<String>total_cotizatie=new ArrayList<>();
+    public final ArrayList<String> nume_cotizanti=new ArrayList<>();
+    public final ArrayList<String>prenume_cotizanti=new ArrayList<>();
+    public final ArrayList<String>total_cotizatie=new ArrayList<>();
 
     String manulTrimis;
     String moptiuneaTrimisa;

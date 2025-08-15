@@ -2,11 +2,13 @@ package com.danielapps.cotizatia;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 import android.widget.ArrayAdapter;
+import androidx.annotation.NonNull;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -81,9 +83,9 @@ public class PaymentActivity extends AppCompatActivity {
             StripeApiService service = ApiClient.getService();
             Call<StripeSessionResponse> call = service.createStripeSession(plata);
 
-            call.enqueue(new Callback<StripeSessionResponse>() {
+            call.enqueue(new Callback<>() {
                 @Override
-                public void onResponse(Call<StripeSessionResponse> call, Response<StripeSessionResponse> response) {
+                public void onResponse(@NonNull Call<StripeSessionResponse> call,@NonNull Response<StripeSessionResponse> response) {
                     if (response.isSuccessful() && response.body() != null) {
                         String url = response.body().getSessionUrl();
 
@@ -97,9 +99,11 @@ public class PaymentActivity extends AppCompatActivity {
                 }
 
                 @Override
-                public void onFailure(Call<StripeSessionResponse> call, Throwable t) {
-                    Toast.makeText(PaymentActivity.this, "Eroare rețea. Verifică conexiunea la internet.", Toast.LENGTH_SHORT).show();
+                public void onFailure(@NonNull Call<StripeSessionResponse> call, @NonNull Throwable t) {
+                    Toast.makeText(PaymentActivity.this, getString(R.string.error_network), Toast.LENGTH_SHORT).show();
+                    Log.e("PaymentError", "Eroare la procesarea plății", t);
                 }
+
             });
         });
     }

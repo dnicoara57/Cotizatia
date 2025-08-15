@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Stare apăsat -->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <corners android:radius="10dp" />
+            <stroke android:width="1dp" android:color="@color/royalblue" />
+            <gradient android:angle="-90" android:startColor="@color/royalblue" android:endColor="#689a92" />
+        </shape>
+    </item>
+
+    <!-- Stare focusat -->
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <corners android:radius="10dp" />
+            <stroke android:width="1dp" android:color="@color/royalblue" />
+            <solid android:color="#58857e" />
+        </shape>
+    </item>
+
+    <!-- Stare normală -->
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="10dp" />
+            <stroke android:width="1dp" android:color="@color/sky_blue_stroke" />
+            <solid android:color="@color/sky_blue_bg" />
+        </shape>
+    </item>
+
+</selector>

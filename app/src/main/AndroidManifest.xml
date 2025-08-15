@@ -24,6 +24,10 @@
             android:name=".AfisareActivity"
             android:exported="false" />
         <activity
+            android:name=".BalantaDetaliiActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".HelpActivity"
             android:exported="false" />
         <activity

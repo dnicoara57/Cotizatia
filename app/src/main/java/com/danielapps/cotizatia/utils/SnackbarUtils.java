@@ -44,16 +44,20 @@ public class SnackbarUtils {
             case SUCCESS:
                 icon.setImageResource(R.drawable.ic_success);
                 background.setColor(Color.parseColor("#81C784")); // verde
+                text.setTextColor(Color.BLACK); // contrast bun pe verde deschis
                 break;
             case ERROR:
                 icon.setImageResource(R.drawable.ic_error);
                 background.setColor(Color.parseColor("#E57373")); // roșu
+                text.setTextColor(Color.WHITE); // contrast bun pe roșu
                 break;
             case WARNING:
                 icon.setImageResource(R.drawable.ic_warning);
                 background.setColor(Color.parseColor("#FFD54F")); // galben
+                text.setTextColor(Color.BLACK); // contrast bun pe galben
                 break;
         }
+
 
         // Umbră subtilă
         customView.setElevation(dpToPx(rootView, 6));
