@@ -1,7 +1,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:padding="@dimen/margin_standard"
     android:background="#F5F5F5">
 
     <LinearLayout
@@ -15,11 +15,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/titlu_dinamic"
-            android:textSize="20sp"
+            android:textSize="@dimen/text_title_size"
             android:textStyle="bold"
             android:textColor="#041B2E"
             android:gravity="center"
-            android:layout_marginBottom="8dp" />
+            android:layout_marginBottom="@dimen/margin_small" />
 
         <!-- Data curentă (opțional) -->
         <TextView
@@ -27,10 +27,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/data_placeholder"
-            android:textSize="14sp"
+            android:textSize="@dimen/text_body_size"
             android:textColor="#666666"
             android:gravity="center"
-            android:layout_marginBottom="24dp" />
+            android:layout_marginBottom="@dimen/margin_large" />
 
         <!-- Caseta balanței -->
         <LinearLayout
@@ -38,9 +38,9 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:background="#FFFFFF"
-            android:padding="16dp"
+            android:padding="@dimen/margin_standard"
             android:elevation="4dp"
-            android:layout_marginBottom="32dp">
+            android:layout_marginBottom="@dimen/margin_xlarge">
 
             <!-- Cotizații -->
             <TextView
@@ -48,16 +48,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/total_cotizatie"
-                android:textSize="18sp"
+                android:textSize="@dimen/text_header_size"
                 android:textStyle="bold"
                 android:textColor="@color/venit_color"
-                android:layout_marginBottom="12dp" />
+                android:layout_marginBottom="@dimen/margin_medium" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#DDDDDD"
-                android:layout_marginBottom="12dp" />
+                android:layout_marginBottom="@dimen/margin_medium" />
 
             <!-- Donații -->
             <TextView
@@ -65,16 +65,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/total_donatii"
-                android:textSize="18sp"
+                android:textSize="@dimen/text_header_size"
                 android:textStyle="bold"
                 android:textColor="@color/venit_color"
-                android:layout_marginBottom="12dp" />
+                android:layout_marginBottom="@dimen/margin_medium" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#DDDDDD"
-                android:layout_marginBottom="12dp" />
+                android:layout_marginBottom="@dimen/margin_medium" />
 
             <!-- Cheltuieli -->
             <TextView
@@ -82,16 +82,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/total_cheltuieli"
-                android:textSize="18sp"
+                android:textSize="@dimen/text_header_size"
                 android:textStyle="bold"
                 android:textColor="@color/cheltuieli_color"
-                android:layout_marginBottom="12dp" />
+                android:layout_marginBottom="@dimen/margin_medium" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#DDDDDD"
-                android:layout_marginBottom="12dp" />
+                android:layout_marginBottom="@dimen/margin_medium" />
 
             <!-- Comisioane -->
             <TextView
@@ -99,16 +99,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/total_comisioane"
-                android:textSize="18sp"
+                android:textSize="@dimen/text_header_size"
                 android:textStyle="bold"
                 android:textColor="@color/cheltuieli_color"
-                android:layout_marginBottom="12dp" />
+                android:layout_marginBottom="@dimen/margin_medium" />
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:background="#DDDDDD"
-                android:layout_marginBottom="12dp" />
+                android:layout_marginBottom="@dimen/margin_medium" />
 
             <!-- Sold -->
             <TextView
@@ -116,10 +116,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/total_sold"
-                android:textSize="20sp"
+                android:textSize="@dimen/text_title_size"
                 android:textStyle="bold"
                 android:textColor="@color/sold_color"
-                android:layout_marginBottom="12dp" />
+                android:layout_marginBottom="@dimen/margin_medium" />
         </LinearLayout>
 
         <!-- Buton Înapoi -->
@@ -127,12 +127,13 @@
             android:id="@+id/buttonInapoi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Înapoi la meniul principal"
-            android:textSize="16sp"
+            android:text="@string/inapoi_la_main"
+            android:textSize="@dimen/button_text_size"
             android:textStyle="bold"
             android:textColor="@android:color/white"
             android:background="@drawable/mybutton"
-
-            android:layout_marginBottom="32dp" />
+            android:layout_marginBottom="@dimen/margin_xlarge"
+            android:layout_marginStart="@dimen/margin_standard"
+            android:layout_marginEnd="@dimen/margin_standard"/>
     </LinearLayout>
 </ScrollView>

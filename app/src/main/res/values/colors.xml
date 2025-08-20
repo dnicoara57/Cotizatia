@@ -22,6 +22,8 @@
     <color name="venit_color">#2E7D32</color>       <!-- verde închis -->
     <color name="cheltuieli_color">#C62828</color>  <!-- roșu închis -->
     <color name="sold_color">#1565C0</color>        <!-- albastru intens -->
+    <color name="white_high_contrast">#FFFFFF</color> <!-- verifică contrastul cu fundalul -->
+
 
 
 </resources>

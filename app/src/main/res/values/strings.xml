@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">Cotizația A.S.Racheta</string>
-    <string name="app_titlu_princ">Afisare situatii statistice</string>
+    <string name="app_titlu_princ">Afișare situații statistice</string>
     <string name="anul">Introduceti anul</string>
     <string name="racheta">Site-Racheta</string>
     <string name="help">Help</string>
     <string name="logout">Iesire</string>
     <string name="iesire">Inchide pagina</string>
-    <string name="afiseaza"><font fgcolor="#ffffff">Afiseaza optiune selectata</font></string>
+    <string name="afiseaza"><font fgcolor="#ffffff">Afișează opțiunea selectată</font></string>
 
     <string name="lipsa_an"><font fgcolor="#ff9a1d1d"><big><b>Nu ati introdus anul cautarii !</b></big></font></string>
     <string name="lipsa_optiune"><font fgcolor="#ff9a1d1d"><big><b>Nu ati ales optiunea cautarii !</b></big></font></string>
@@ -20,15 +20,15 @@
     <string name="suma_hint">Suma (RON)</string>
     <string name="renunta">Renunță</string>
 
-    <string name="Statistici">Statistici asociatie</string>
-    <string name="SitCotMem">Situatia cotizatiei pe membru</string>
-    <string name="CotAsAn">Cotizatie asociatie pe an</string>
+    <string name="Statistici">Statistici asociație</string>
+    <string name="SitCotMem">Situația cotizației pe membru</string>
+    <string name="CotAsAn">Cotizație asociație pe an</string>
     <string name="TotCheltAn">Total cheltuieli asociatie pe an</string>
-    <string name="SitFinGen">Situatia financiara generala</string>
-    <string name="SitFinAnuala">Situatia financiara anuala</string>
-    <string name="TotDonatii">Total donatii primite pe an</string>
-    <string name="PlataOnline">Plateste cotizatia online</string>
-    <string name="BalantaDetails">Balanta-detalii</string>
+    <string name="SitFinGen">Situația financiară generală</string>
+    <string name="SitFinAnuala">Situația financiară anuală</string>
+    <string name="TotDonatii">Total donații primite pe an</string>
+    <string name="PlataOnline">Platește cotizația online</string>
+    <string name="BalantaDetails">Balanța-detalii</string>
 
     <string name="total_cotizatie">Total cotizație: %1$s lei</string>
     <string name="total_donatii">Total donații: %1$s lei</string>
@@ -67,7 +67,7 @@
     - situatia financiara pentru anul selectat\n
     - balanta detaliata atat pe anul selectat cat si balanta generala\n
     - puteti plati cotizatia sau face donatii online in deplina siguranta\n
-    - puteti accesa situl A.S."Racheta" pentru maimulte informatii\n\n</string>
+    - puteti accesa situl A.S."Racheta" pentru mai multe informatii\n\n</string>
 
     <string name="Continut3Help">Pentru a vizualiza informatiile , introduceti anul pe care il doriti si apoi selectati optiunea de afisare dorita\n\n
     Pe bara aplicatiei aveti optiunea de a parasi aplicatia si un meniu reprezentat prin trei puncte asezata vertical
@@ -77,5 +77,11 @@
      - prima va permite sa vizualizati situl A.S."Racheta"\n
      - a doua afiseaza acest help\n\n</string>
     <string name="total_donatii_primite_pe_an">Total donatii primite pe an</string>
+
+    <!-- Descrieri pentru accesibilitate -->
+    <string name="statistics_header_description">Tabel de statistici</string>
+    <string name="table_scroll_description">Tabel de statistici derulabil orizontal</string>
+    <string name="back_button_description">Buton pentru a reveni la ecranul anterior</string>
+
 
 </resources>

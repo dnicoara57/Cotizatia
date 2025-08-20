@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:padding="@dimen/margin_standard"
     tools:context=".AfisareActivity">
 
     <TextView
@@ -10,13 +10,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="@dimen/margin_small"
         android:background="@drawable/mybutton"
         android:gravity="center"
-        android:padding="5dp"
+        android:padding="@dimen/margin_small"
         android:text="@string/Statistici"
         android:textColor="@color/white"
-        android:textSize="18sp" />
+        android:textSize="@dimen/text_header_size" />
 
     <!-- ScrollView care conține întregul tabel -->
     <ScrollView
@@ -33,7 +33,7 @@
 
             <TableLayout
                 android:id="@+id/table"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:stretchColumns="*" />
         </HorizontalScrollView>
@@ -47,14 +47,15 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:orientation="vertical"
-        android:layout_marginTop="8dp">
+        android:layout_marginTop="@dimen/margin_small">
 
         <Button
             android:id="@+id/buttonInapoi"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_standard"
             android:background="@drawable/mybutton"
-            android:textSize="16sp"
+            android:textSize="@dimen/button_text_size"
             android:text="@string/iesire" />
     </LinearLayout>
 </RelativeLayout>
