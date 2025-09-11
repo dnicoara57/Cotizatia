@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    android:padding="@dimen/margin_standard"
+    android:paddingHorizontal="@dimen/margin_standard"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -17,6 +17,7 @@
             android:id="@+id/textViewTitlu"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_large"
             android:background="@drawable/caseta"
             android:text="@string/app_titlu_princ"
             android:textAlignment="center"
@@ -40,6 +41,7 @@
             android:inputType="number"
             android:textColor="#041B2E"
             android:textSize="@dimen/text_body_size"
+            android:textColorHint="#888888"
             android:importantForAutofill="no"
             app:layout_constraintTop_toBottomOf="@id/textViewTitlu"
             app:layout_constraintStart_toStartOf="parent"
@@ -60,7 +62,7 @@
             <RadioButton
                 android:id="@+id/radio_cot_persoana"
                 style="@style/RadioButtonStyle"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
                 android:text="@string/SitCotMem" />
@@ -68,7 +70,7 @@
             <RadioButton
                 android:id="@+id/radio_total_cot_pe_an"
                 style="@style/RadioButtonStyle"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
                 android:text="@string/CotAsAn" />
@@ -76,7 +78,7 @@
             <RadioButton
                 android:id="@+id/radio_donatii_asoc_an"
                 style="@style/RadioButtonStyle"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
                 android:text="@string/TotDonatii" />
@@ -84,7 +86,7 @@
             <RadioButton
                 android:id="@+id/radio_chelt_asoc_an"
                 style="@style/RadioButtonStyle"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
                 android:text="@string/TotCheltAn" />
@@ -92,7 +94,7 @@
             <RadioButton
                 android:id="@+id/radio_sit_gen_anuala"
                 style="@style/RadioButtonStyle"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
                 android:text="@string/SitFinAnuala" />
@@ -100,7 +102,7 @@
             <RadioButton
                 android:id="@+id/radio_sit_gen_asoc"
                 style="@style/RadioButtonStyle"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:checked="false"
                 android:text="@string/SitFinGen" />
