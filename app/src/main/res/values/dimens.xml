@@ -10,6 +10,7 @@
     <dimen name="edittext_min_height">48dp</dimen>
     <dimen name="text_title_size">20sp</dimen>
     <dimen name="text_body_size">16sp</dimen>
+    <dimen name="margin_bottom_small">8dp</dimen>
 
     <!-- dimensiuni noi pentru acest layout -->
     <dimen name="text_header_size">18sp</dimen>

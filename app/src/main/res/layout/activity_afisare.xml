@@ -47,6 +47,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:orientation="vertical"
+        android:layout_marginBottom="@dimen/margin_bottom_small"
         android:layout_marginTop="@dimen/margin_small">
 
         <Button

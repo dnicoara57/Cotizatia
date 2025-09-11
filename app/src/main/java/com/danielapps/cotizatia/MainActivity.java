@@ -8,7 +8,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.AbsoluteSizeSpan;
-import android.text.style.RelativeSizeSpan;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -94,9 +93,6 @@ public class MainActivity extends AppCompatActivity {
         btnPlataOnline = findViewById(R.id.btnPlataOnline);
         btnBalantaDetalii = findViewById(R.id.btnBalantaDetalii);
 
-        //setare marime text in hint anul
-        //SpannableString hint = new SpannableString(getString(R.string.anul));
-        //hint.setSpan(new RelativeSizeSpan(1.2f), 0, hint.length(), 0); // mărește hint-ul cu 20%
 
         float hintSizePx = getResources().getDimension(R.dimen.text_body_size); // dimensiunea în px
         SpannableString hint = new SpannableString(getString(R.string.anul));
